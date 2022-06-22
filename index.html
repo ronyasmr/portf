@@ -4,100 +4,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="assets/css/main.css">
     <title>My Portf</title>
 
     <style>
         body {
             background-color: #111111;
-        }
-
-        /* NAV */
-        .navbar {
-            background-color: #0a0b0c;
-            overflow: hidden;
-            position: absolute;
-            top: 0;
-            width: 100%;
-            left: 0px;
-            right: 0px;
-            top: 0px;
-            box-shadow: 0px 7px 20px #111111;
-
-            color: #ffffff;
+            margin: 0;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
 
-        .navbar a {
-            float: right;
-            display: block;
-            padding: 35px 30px;
-
-            color: #f2f2f2;
-            text-decoration: none;
-            font-size: 16px;
-            letter-spacing: 1px;
+        /* NAVBAR */
+        .nav {
+            background-color: #0a0b0c;
+            overflow: hidden;
+            width: 100%;
         }
 
-        .navbar img {
-            padding: 15px 30px;
-            width: 50px;
+        .nav img {
+            padding: 1vw 1vw;
+            width: 4vw;
             border-radius: 100%;
             object-fit: cover;
+            position: absolute;
         }
 
-        .navbar a:hover {
-            background-color: #ffffff;
-            color: #1a1a1a;
+        .nav a {
+            float: right;
+            display: block;
+            padding: 2vw 2vw;
+
+            color: #959595;
+            font-size: 1.5vw;
+            text-align: center;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        .nav a:hover {
+            transition: 1s;
+
+            color: #ffffff;
+        }
+
+        .nav .icon {
+            display: none;
         }
 
         /* CONTENT */
         .content {
-            /* background-color: red; */
-            margin-top: 10px;
-            padding: 100px 50px;
-            height: 465px;
-
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
+            height: 605px;
 
             color: #ffffff;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             letter-spacing: 1px;
-            font-size: 24px;
-            text-align: justify;
+
+            position: relative;
         }
 
-        .content img {
-            width: 400px;
-            height: 400px;
+        .valign {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
 
-            display: block;
+        .content .fp {
+            padding: 6vw 6vw;
+
+            font-size: 10vw;
+            line-height: 9vw;
+        }
+
+        .content .fp .s {
+            font-size: 4vw;
+            line-height: normal;
+        }
+
+        .sp {
+            padding: 22.8vw;
+
+            font-size: 1.5vw;
+            text-align: center;
+            letter-spacing: 1px;
+            line-height: normal;
+        }
+
+        .t {
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+            padding: 7.5vw;
+
+            color: #ffffff;
+            font-size: 1.5vw;
+            text-align: center;
+            letter-spacing: 1px;
+            line-height: normal;
+        }
+
+        .t img {
+            width: 100%;
+            height: auto;
+
+            /* display: block; */
             margin-left: auto;
             margin-right: auto;
 
-            border-radius: 100%;
             object-fit: cover;
-            box-shadow: 7px 7px 20px #111111;
+            box-shadow: 7px 7px 10px #000000;
         }
 
         /* TAB */
         .tabs {
             display: flex;
             flex-wrap: wrap;
-            color: #1a1a1a;
+            padding: 2vw;
         }
 
         .tabs label {
             order: 1;
             display: block;
-            padding: 1rem 1rem;
+            padding: 1vw 1vw;
             cursor: pointer;
             background: rgba(0, 0, 0, 0);
             transition: background ease 0.2s;
+
             color: #ffffff;
-            font-size: 18px;
+            font-size: 1.3vw;
         }
 
         .tabs .tab {
@@ -105,9 +137,10 @@
             flex-grow: 1;
             width: 100%;
             display: none;
-            padding: 1rem;
-            background: #fff;
-            color: #1a1a1a;
+            padding: 2vw;
+            background: #ffffff;
+
+            color: #0a0b0c;
         }
 
         .tabs input[type="radio"] {
@@ -115,35 +148,33 @@
         }
 
         .tabs input[type="radio"]:checked+label {
-            background: #fff;
-            color: #1a1a1a;
+            background: #ffffff;
+
+            color: #0a0b0c;
+            font-weight: bold;
         }
 
         .tabs input[type="radio"]:checked+label+.tab {
             display: block;
-            box-shadow: 0px 7px 20px #111111;
+            box-shadow: 7px 7px 10px #000000;
         }
 
-        @media (max-width: 45em) {
+        .footer {
+            margin-top: 2vw;
+            padding: 0.5vw;
 
-            .tabs .tab,
-            .tabs label {
-                order: initial;
-            }
-
-            .tabs label {
-                width: 100%;
-                margin-right: 0;
-                margin-top: 0.2rem;
-            }
+            color: #ffffff;
+            font-size: 1.2vw;
+            text-align: center;
+            letter-spacing: 1px;
         }
 
         /* ANIM */
         .reveal {
             position: relative;
-            transform: translateY(150px);
+            transform: translateY(100px);
             opacity: 0;
-            transition: 1s all ease;
+            transition: 0.7s all ease;
         }
 
         .reveal.active {
@@ -158,14 +189,14 @@
             bottom: 20px;
             right: 30px;
             z-index: 99;
-            font-size: 18px;
+            font-size: 1.5vw;
             border: 1;
             border-color: #ffffff;
             outline: none;
             background-color: #111111;
             color: #ffffff;
             cursor: pointer;
-            padding: 15px;
+            padding: 1vw;
             border-radius: 10%;
         }
 
@@ -175,47 +206,122 @@
             border: 1;
             border-color: #111111;
         }
+
+        @media screen and (max-width: 768px) {
+
+            /* NAVBAR */
+            .nav a {
+                display: none;
+                padding: 3vw 5vw;
+
+                font-size: 3vw;
+            }
+
+            .nav img {
+                padding: 2.5vw 2.5vw;
+            }
+
+            .nav a:not(:first-child) {
+                display: none;
+            }
+
+            .nav a.icon {
+                display: block;
+                float: right;
+            }
+
+            .nav.responsive {
+                position: relative;
+            }
+
+            .nav.responsive .icon {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+
+            .nav.responsive a {
+                float: none;
+                display: block;
+
+                text-align: center;
+            }
+
+            .sp {
+                padding: 30vw;
+
+                font-size: 1.5vw;
+            }
+
+            .t {
+                height: 50vw;
+
+                font-size: 1.5vw;
+            }
+
+            .t img {
+                width: 100%;
+                height: auto;
+            }
+
+            .tabs .tab,
+            .tabs label {
+                order: initial;
+
+                font-size: 1.5vw;
+                text-align: center;
+            }
+
+            .tabs label {
+                width: 100%;
+            }
+
+            #myBtn {
+                padding: 3vw;
+            }
+        }
     </style>
+
 </head>
 
 <body>
 
-    <div class="navbar">
+    <div class="nav" id="navbar">
         <img src="log.jpg" onclick="window.location.reload(true);">
-        <a href="" onclick="window.location.reload(true);">(home ic)</a>
+        <a href="" onclick="window.location.reload(true);">⌂</a>
         <a href="#content2">About Me</a>
         <a href="#content3">Experience</a>
         <a href="#content4">Project</a>
+        <a class="icon" onclick="navbar()">
+            ≡
+        </a>
     </div>
 
-    <div id="content1" style="margin-top: 100px; height: 365px; background-image: url('cont1.jpg');" class="content">
-        <table border="0" width="100%">
-            <tr>
-                <td>
-                    <a style="font-size: 30px;">Hi.. I'm</a><br>
-                    <a style="font-size: 100px; font-weight: bold;">Rony·<br>Asmara</a>
-                </td>
-                <td>
-                    <img src="cont1.jpg">
-                </td>
-            </tr>
-        </table>
-    </div>
-
-    <div style="background-color: #ffffff; color: #1a1a1a;" id="content2" class="content">
-        <div class="reveal">
-            <p style="text-align: center; padding: 150px;">" I have interest in <i>PHP Programming</i> and<br><i>CorelDRAW Graphic Design</i>. "</p>
+    <div id="content1" class="content" style="margin-top: 10px; height: 523px; background-image: url('backg.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center;">
+        <div class="valign">
+            <div class="fp">
+                <a class="s">Hi.. I'm</a><br>
+                Rony·<br>Asmara
+            </div>
         </div>
     </div>
 
-    <div style="color: #ffffff;" class="content">
+    <div id="content2" style="background-color: #ffffff; color: #0a0b0c;">
         <div class="reveal">
+            <div class="sp">
+                " I have interest in <i>PHP Programming</i> and<br><i>CorelDRAW Graphic Design</i>. "
+            </div>
+        </div>
+    </div>
+
+    <div class="reveal">
+        <div class="t">
             <table border="0">
                 <tr>
-                    <td>
-                        <img style="border-radius: 5%;" src="cont1.jpg">
+                    <td style="width: auto;">
+                        <img style="border-radius: 5%;" src="log.jpg">
                     </td>
-                    <td style="width: 65%; text-align: center;">
+                    <td style="width: 60%; text-align: center;">
                         <p>I like IT, especially in <b>Web Development</b>.<br>It's started when I created my first site using HTML.</p>
                         <p>Some programming languages ​​that I know quite well:</p>
                         <table border="0" style="width: 100%; font-weight: bold;">
@@ -234,109 +340,78 @@
         </div>
     </div>
 
-    <div style="color: #ffffff;" id="content3" class="content">
-        <div class="reveal">
-            <p style="font-size: 30px;">My·Experience
-                <hr />
-            </p>
+    <div class="content" style="height: 30vw;">
+        <p style="font-size: 2vw; padding: 0vw 3vw;">My·Experience
+        </p>
+        <hr style="margin: 0vw 2vw;" />
 
-            <div class="tabs">
-                <input type="radio" name="tabs" id="tabone" checked="checked">
-                <label for="tabone">PT. Vads Indonesia</label>
-                <div class="tab">
-                    <a style="font-weight: bold;">CEC Ajaib Digital</a>
-                    <a style="font-size: 16px; letter-spacing: 5px;">( 2021 - 2022 )</a><br>
-                    <a style="font-size: 20px;">Act as a liaison, provide product/services information, answer questions, and resolve any emerging problems
-                        <br>that customer accounts might face with accuracy and efficiency.</a>
-                </div>
+        <div class="tabs" id="content3">
+            <input type="radio" name="tabs" id="tabone" checked="checked">
+            <label for="tabone"> · PT. Vads Indonesia</label>
+            <div class="tab">
+                <a style="font-weight: bold;">CEC Ajaib Digital</a>( 2021 - 2022 )<br>
+                Act as a liaison, provide product/services information, answer questions, and resolve any emerging problems that customer accounts might face with accuracy and efficiency.
+            </div>
 
-                <input type="radio" name="tabs" id="tabtwo">
-                <label for="tabtwo">PT. Yogya Kristal Sejati</label>
-                <div class="tab">
-                    <a style="font-weight: bold;">Admin</a>
-                    <a style="font-size: 16px; letter-spacing: 5px;">( 2019 )</a><br>
-                    <a style="font-size: 20px;">Create a system to record the goods owned by the company and operate and maintain the system.</a>
-                </div>
+            <input type="radio" name="tabs" id="tabtwo">
+            <label for="tabtwo"> · PT. Yogya Kristal Sejati</label>
+            <div class="tab">
+                <a style="font-weight: bold;">Admin</a>( 2019 )<br>
+                Create a system to record the goods owned by the company and operate and maintain the system.
+            </div>
 
-                <input type="radio" name="tabs" id="tabthree">
-                <label for="tabthree">PGRI Yogyakarta University Student Cooperative</label>
-                <div class="tab">
-                    <a style="font-weight: bold;">Administration and Public Relations Staff</a>
-                    <a style="font-size: 16px; letter-spacing: 5px;">( 2018 - 2020 )</a><br>
-                    <a style="font-size: 20px;">Create and record incoming and outgoing mail, and (side job)
-                        graphic designer and social media admin.</a>
-                </div>
+            <input type="radio" name="tabs" id="tabthree">
+            <label for="tabthree"> · PGRI Yogyakarta University Student Cooperative</label>
+            <div class="tab">
+                <a style="font-weight: bold;">Administration and Public Relations Staff</a>( 2018 - 2020 )<br>
+                Create and record incoming and outgoing mail, and (side job) graphic designer and social media admin.
+            </div>
 
-                <input type="radio" name="tabs" id="tabfour">
-                <label for="tabfour">Nagoya Japanesse Fusion Resto</label>
-                <div class="tab">
-                    <a style="font-weight: bold;">Server</a>
-                    <a style="font-size: 16px; letter-spacing: 5px;">( 2017 - 2018 )</a><br>
-                    <a style="font-size: 20px;">Take orders from customers and deliver their food to them.</a>
-                </div>
+            <input type="radio" name="tabs" id="tabfour">
+            <label for="tabfour"> · Nagoya Japanesse Fusion Resto</label>
+            <div class="tab">
+                <a style="font-weight: bold;">Server</a>( 2017 - 2018 )<br>
+                Take orders from customers and deliver their food to them.
             </div>
         </div>
     </div>
 
-    <div style="background-color: #ffffff; color: #1a1a1a; height: 1900px;" id="content4" class="content">
-        <div class="reveal">
-            <p style="font-size: 30px;">My·Project
-                <hr />
-            </p>
-        </div>
+    <div class="content" style="height: auto;">
+        <p style="font-size: 2vw; padding: 0vw 3vw;">My·Project
+        </p>
+        <hr id="content4" style="margin: 0vw 2vw;" />
 
-        <div class="reveal">
-            <table border="0">
-                <tr>
-                    <td>
-                        <img style="border-radius: 0; width: 854px; height: 480px; object-fit: contain;" src="spk1.png">
-                    </td>
-                    <td style="width: 100%;">
-                        <p style="text-align: center;">alala</p>
-                    </td>
-                </tr>
-            </table>
-        </div>
+        <table style="height: 10vw; font-size: 1.5vw; text-align: justify;" border="0">
+            <tr>
+                <td style="width: auto; padding: 2vw;">
+                    <img style="width: 55vw; object-fit: contain;" src="spk1.png">
+                </td>
+                <td style="width: 40%; padding: 1.5vw;">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet exercitationem dicta, recusandae hic sit cumque commodi perspiciatis odit quidem numquam eaque deleniti sequi omnis qui vitae ducimus animi quae quibusdam?
+                </td>
+            </tr>
 
-        <div class="reveal">
-            <br>
-            <hr /><br>
-        </div>
+            <tr>
+                <td style="width: auto; padding: 2vw;">
+                    <img style="width: 55vw; object-fit: contain;" src="spk2.png">
+                </td>
+                <td style="width: 40%; padding: 1.5vw;">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet exercitationem dicta, recusandae hic sit cumque commodi perspiciatis odit quidem numquam eaque deleniti sequi omnis qui vitae ducimus animi quae quibusdam?
+                </td>
+            </tr>
 
-        <div class="reveal">
-            <table border="0">
-                <tr>
-                    <td style="width: 100%;">
-                        <p style="text-align: center;">alala</p>
-                    </td>
-                    <td>
-                        <img style="border-radius: 0; width: 854px; height: 480px; object-fit: contain;" src="spk2.png">
-                    </td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="reveal">
-            <br>
-            <hr /><br>
-        </div>
-
-        <div class="reveal">
-            <table border="0">
-                <tr>
-                    <td>
-                        <img style="border-radius: 0; width: 854px; height: 480px; object-fit: contain;" src="sp1.png">
-                    </td>
-                    <td style="width: 100%;">
-                        <p style="text-align: center;">alala</p>
-                    </td>
-                </tr>
-            </table>
-        </div>
+            <td style="width: auto; padding: 2vw;">
+                <img style="width: 55vw; object-fit: contain;" src="sp1.png">
+            </td>
+            <td style="width: 40%; padding: 1.5vw;">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet exercitationem dicta, recusandae hic sit cumque commodi perspiciatis odit quidem numquam eaque deleniti sequi omnis qui vitae ducimus animi quae quibusdam?
+            </td>
+            </tr>
+        </table>
     </div>
 
-    <div class="content" style="height: auto; padding: 30px; font-size: 16px;">
-        Designed & Built by Rony Asmara·2022
+    <div class="footer">
+        <p>Designed & Built by Rony Asmara © 2022</p>
     </div>
 
     <button onclick="topFunction()" id="myBtn" title="Back To Top">Up</button>
@@ -354,7 +429,7 @@
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
+                var elementVisible = 100;
 
                 if (elementTop < windowHeight - elementVisible) {
                     reveals[i].classList.add("active");
@@ -365,6 +440,16 @@
         }
 
         window.addEventListener("scroll", reveal);
+
+        // NAVBAR
+        function navbar() {
+            var x = document.getElementById("navbar");
+            if (x.className === "nav") {
+                x.className += " responsive";
+            } else {
+                x.className = "nav";
+            }
+        }
 
         // UP BUTTON
         //Get the button
